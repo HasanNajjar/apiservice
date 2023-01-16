@@ -31,7 +31,7 @@ jobs:
         with:
           local: 'target/apiservice-0.0.1-SNAPSHOT.war'
           remote:  'C:\Users\hasan\Desktop'
-          host: 20.120.93.141:3389
+          host: 20.120.93.141:22
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
 
