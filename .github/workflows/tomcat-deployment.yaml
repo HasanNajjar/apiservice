@@ -18,7 +18,7 @@ jobs:
       - name: verify java version
         run: java --version
       - name: build using maven
-        run: ./mvnw package
+        run: .\mvnw package
       # - name: verify if built successfully
       #   uses: 
      # - name: deploy build to tomcat
