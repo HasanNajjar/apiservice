@@ -14,7 +14,8 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17' 
-          
+          cache: 'maven'
+
       - name: verify java version
         run: java --version
 
