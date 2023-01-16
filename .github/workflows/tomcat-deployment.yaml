@@ -14,9 +14,26 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17' 
-      - uses: actions/checkout@v3
+      - name: 'clone code' 
+        uses: actions/checkout@v3
 
-      - run: chmod +x ./mvnw
+      - name: permissions
+        run: chmod +x ./mvnw
 
       - name: build using maven
         run: ./mvnw package
+      
+      - name: verify if build was successful
+        run: ls -l target/*.war 
+
+      - name: copy something
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: 'target/'
+          remote:  'C:\Users\hasan\Desktop'
+          host: 20.120.93.141
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+
+
+
