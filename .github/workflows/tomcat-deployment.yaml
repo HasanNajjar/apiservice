@@ -18,7 +18,7 @@ jobs:
       - name: verify java version
         run: java --version
       - name: build using maven
-        uses: mvn -B package --file pom.xml
+        run: mvn -B package --file pom.xml
       # - name: verify if built successfully
       #   uses: 
      # - name: deploy build to tomcat
