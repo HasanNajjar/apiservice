@@ -24,12 +24,12 @@ jobs:
         run: ./mvnw package
       
       - name: verify if build was successful
-        run: ls -l target/*.war 
+        run: ls
 
       - name: copy something
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: C:/desktop/apiservice/target/apiservice-0.0.1-SNAPSHOT.war
+          local: target/apiservice-0.0.1-SNAPSHOT.war
           remote:  'C:/Users/hasan/Desktop'
           host: 20.120.93.141
           username: ${{ secrets.USERNAME }}
