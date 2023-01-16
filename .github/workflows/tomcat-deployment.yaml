@@ -1,0 +1,30 @@
+name: Tomcat Server Deployment
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs: 
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install Java
+        uses: actions/checkout@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17' 
+          cache: 'maven'
+      - name: clone the source code
+        uses: https://github.com/HasanNajjar/apiservice.git
+        with: 
+          owner: 'HasanNajjar'
+          repository: 'apiservice'
+      - name: build using maven
+        uses: mvn -B package --file pom.xml
+      # - name: verify if built successfully
+      #   uses: 
+     # - name: deploy build to tomcat
+      #  uses:
+
