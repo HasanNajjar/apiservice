@@ -3,7 +3,7 @@ name: Tomcat Server Deployment
 on:
   push:
     branches:
-      - master
+      - testing
   workflow_dispatch:
 jobs: 
   build-and-deploy:
@@ -17,8 +17,8 @@ jobs:
           cache: 'maven'
       - name: verify java version
         run: java --version
-     # - name: build using maven
-      #  run: mvn -B package --file pom.xml
+      - name: build using maven
+        run: mvn -B package --file pom.xml
       # - name: verify if built successfully
       #   uses: 
      # - name: deploy build to tomcat
