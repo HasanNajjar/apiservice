@@ -49,7 +49,7 @@ jobs:
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
           local: artifact-1
-          remote:  'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\artifact-1\'
+          remote:  'C:/Program Files/Apache Software Foundation/Tomcat 10.0/webapps/'
           host: 20.120.93.141
           user: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
