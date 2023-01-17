@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
           name: artifact-1
-          path: '*.war'
+          path: target/*.war
 
 
   deploy-stage: 
