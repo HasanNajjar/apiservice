@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
           name: artifact-1
-          path: artifact
+          path: apiservice-${{ env.RUN_NUMBER }}.war
 
 
   deploy-stage: 
