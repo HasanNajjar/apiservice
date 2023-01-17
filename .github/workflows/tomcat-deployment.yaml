@@ -24,7 +24,7 @@ jobs:
         run: chmod +x ./mvnw
 
       - name: modify pom.xml with version
-        run: sed -i "s/VERSION_NAME/${{ env.RUN_NUMBER }}" pom.xml
+        run: sed -i "s/VERSION_NUMBER/${{ env.RUN_NUMBER }}" pom.xml
       - name: build using maven
         run: ./mvnw package
       
