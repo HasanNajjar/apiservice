@@ -1,13 +1,13 @@
 name: Tomcat Server Deployment
 
+env: 
+  VERSION_ID: github.job.run_number
 on:
   push:
     branches:
       - testing
   workflow_dispatch:
 
-env: 
-  VERSION_ID: github.job.run_number
 jobs: 
   build-and-deploy:
     runs-on: ubuntu-latest
