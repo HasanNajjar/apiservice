@@ -30,13 +30,13 @@ jobs:
 
 
       - name: File versioning
-        run: mv target/apiservice-0.0.1-SNAPSHOT.war target/apiservice-${ github.job.run_number }-SNAPSHOT.war
+        run: mv target/apiservice-0.0.1-SNAPSHOT.war target/apiservice-${{ github.run_number }}-SNAPSHOT.war
 
 
       - name: copy something
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
-          local: './target/apiservice-${ github.job.run_number }-SNAPSHOT.war'
+          local: './target/apiservice-${{ github.run_number }}-SNAPSHOT.war'
           remote:  'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'
           host: 20.120.93.141
           user: ${{ secrets.USERNAME }}
