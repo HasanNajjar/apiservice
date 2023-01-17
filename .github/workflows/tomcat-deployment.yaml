@@ -34,7 +34,7 @@ jobs:
       - name: copy something
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
-          local: './target/apiservice-${{ env.RUN_NUMBER }}-SNAPSHOT.war'
+          local: './target/apiservice-0.0.1-SNAPSHOT.war'
           remote:  'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'
           host: 20.120.93.141
           user: ${{ secrets.USERNAME }}
