@@ -5,6 +5,9 @@ on:
     branches:
       - testing
   workflow_dispatch:
+
+env: 
+  VERSION_ID: github.job.run_number
 jobs: 
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -29,9 +32,8 @@ jobs:
 
 
       - name: File versioning
-        uses: actions/checkout@master
-        with: 
-          filename: 'target/apiservice-0.0.1-SNAPSHOT.war'
+        run: mv target/apiservice-0.0.1-SNAPSHOT.war target/apiservice-${{VERSION_ID}}-SNAPSHOT.war
+
 
       - name: copy something
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
