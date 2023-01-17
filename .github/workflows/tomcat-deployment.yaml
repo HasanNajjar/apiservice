@@ -27,6 +27,12 @@ jobs:
       - name: verify if build was successful
         run: ls -l target/*.war 
 
+
+      - name: File versioning
+        uses: actions/checkout@master
+        with: 
+          filename: 'target/apiservice-0.0.1-SNAPSHOT.war'
+
       - name: copy something
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
@@ -37,4 +43,3 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           pre_upload: echo "Uploading before upload"
           post_upload: Powershell.exe 'ls -l C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\*.war'
-
