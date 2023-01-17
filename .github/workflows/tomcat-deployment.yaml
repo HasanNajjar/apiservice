@@ -57,5 +57,5 @@ jobs:
           post_upload: Powershell.exe 'ls -l C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\*.war'
       
       - name: healthcheck get
-        run: curl http://localhost:8080/apiservice-${{ env.RUN_NUMBER }}/actuator/health
+        run: curl http://20.120.93.141:8080/apiservice-${{ env.RUN_NUMBER }}/actuator/health
 
