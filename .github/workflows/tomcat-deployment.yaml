@@ -1,5 +1,6 @@
 name: Tomcat Server Deployment
-
+env:
+  RUN_NUMBER: ${{ github.run_number }}
 on:
   push:
     branches:
@@ -22,21 +23,21 @@ jobs:
       - name: permissions
         run: chmod +x ./mvnw
 
+      - name: modify pom.xml with version
+        run: sed 's/VERSION_NUMBER/${{ env.RUN_NUMBER }}/g'
       - name: build using maven
         run: ./mvnw package
       
       - name: verify if build was successful
         run: ls -l target/*.war 
 
-
       - name: File versioning
-        run: mv target/apiservice-0.0.1-SNAPSHOT.war target/apiservice-${{ github.run_number }}-SNAPSHOT.war
-
+        run: mv target/apiservice-0.0.1-SNAPSHOT.war target/apiservice-${{ env.RUN_NUMBER }}-SNAPSHOT.war
 
       - name: copy something
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
-          local: './target/apiservice-${{ github.run_number }}-SNAPSHOT.war'
+          local: './target/apiservice-${{ env.RUN_NUMBER }}-SNAPSHOT.war'
           remote:  'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'
           host: 20.120.93.141
           user: ${{ secrets.USERNAME }}
