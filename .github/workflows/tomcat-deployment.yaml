@@ -36,5 +36,5 @@ jobs:
           user: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           pre_upload: echo "Uploading before upload"
-          post_upload: 'powershell.exe ls -l C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\*.war'
+          post_upload: 'Powershell.exe ls -l C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\*.war'
 
