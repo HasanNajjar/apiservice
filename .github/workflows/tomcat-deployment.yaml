@@ -28,11 +28,11 @@ jobs:
         run: ls -l target/*.war 
 
       - name: copy something
-        uses: garygrossgarten/github-action-scp@release
+        uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
-          local: target/apiservice-0.0.1-SNAPSHOT.war
-          remote:  'C:/Users/hasan/Desktop'
+          local: './target/apiservice-0.0.1-SNAPSHOT.war'
+          remote:  'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'
           host: 20.120.93.141
-          username: ${{ secrets.USERNAME }}
+          user: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
 
