@@ -31,9 +31,6 @@ jobs:
       - name: verify if build was successful
         run: ls -l target/*.war 
 
-      - name: File versioning
-        run: mv target/apiservice-0.0.1-SNAPSHOT.war target/apiservice-${{ env.RUN_NUMBER }}-SNAPSHOT.war
-
       - name: copy something
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
