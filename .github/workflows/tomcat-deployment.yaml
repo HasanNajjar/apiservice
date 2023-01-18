@@ -65,4 +65,3 @@ jobs:
         run: |
               curl localhost:8080/apiservice-${{ env.RUN_NUMBER }}/version
               grep "^${{ env.RUN_NUMBER }}"
-              
