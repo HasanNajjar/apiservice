@@ -37,6 +37,14 @@ jobs:
           name: artifact-1
           path: target/*.war
 
+      - name: version API return change
+        run: sed -i "s/VERSION_NUMBER/${{ env.RUN_NUMBER }}/g java\com\bbk\api\apiservice" 
+      
+      - name: versioncheck
+        run: |
+              curl http://20.120.93.141:8080/apiservice-${{ env.RUN_NUMBER }}/version
+              grep "^${{ env.RUN_NUMBER }}"
+
 
   deploy-stage: 
     runs-on: ubuntu-latest
@@ -58,4 +66,3 @@ jobs:
       
       - name: healthcheck get
         run: curl http://20.120.93.141:8080/apiservice-${{ env.RUN_NUMBER }}/actuator/health
-
