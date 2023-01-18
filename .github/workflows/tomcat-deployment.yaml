@@ -38,7 +38,7 @@ jobs:
           path: target/*.war
 
       - name: version API return change
-        run: sed -i "s/VERSION_NUMBER/${{ env.RUN_NUMBER }}/g java\com\bbk\api\apiservice" 
+        run: sed -i "s/VERSION_NUMBER/${{ env.RUN_NUMBER }}/g" java\com\bbk\api\apiservice 
       
       - name: versioncheck
         run: |
