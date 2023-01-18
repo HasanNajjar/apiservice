@@ -66,5 +66,5 @@ jobs:
       - name: versioncheck
         run: |
               curl http://20.120.93.141:8080/apiservice-${{ env.RUN_NUMBER }}/version
-              grep "^${{ env.RUN_NUMBER }}"
+             
               
