@@ -38,7 +38,9 @@ jobs:
           path: target/*.war
 
       - name: version API return change
-        run: sed -i "s/VERSION_NUMBER/${{ env.RUN_NUMBER }}/g" src/main/java/com/bbk/api/apiservice/ApiserviceApplication.java 
+        run: |
+              cd src/main/java/com/bbk/api/apiservice 
+              sed -i "s/VERSION_NUMBER/${{ env.RUN_NUMBER }}/g" ApiserviceApplication.java 
 
   deploy-stage: 
     runs-on: ubuntu-latest
